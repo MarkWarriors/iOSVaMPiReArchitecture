@@ -47,11 +47,11 @@ final class HomeViewController: UIViewController {
         eventListButton.backgroundColor = .black
     }
     
-    @IBAction func eventListButtonTapped(_ sender: Any) {
+    @IBAction private func eventListButtonTapped(_ sender: Any) {
         presenter.eventListButtonTapped()
     }
     
-    @IBAction func nextEventDetailsButtonTapped(_ sender: Any) {
+    @IBAction private func nextEventDetailsButtonTapped(_ sender: Any) {
         presenter.nextEventDetailsButtonTapped()
     }
 }

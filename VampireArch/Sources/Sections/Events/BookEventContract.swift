@@ -18,4 +18,6 @@ protocol BookEventViewControllerType: AnyObject {
 
 struct BookEventViewConfig {
     let screenTitle: String
+    let header: String
+    let bookEventButton: String
 }

@@ -10,6 +10,7 @@ import Foundation
 protocol EventDetailsPresenterType {
     func setup(with view: EventDetailsViewControllerType)
     func screenWillAppear()
+    func bookEventTapped()
 }
 
 protocol EventDetailsViewControllerType: AnyObject {
@@ -21,6 +22,7 @@ protocol EventDetailsViewControllerType: AnyObject {
 struct EventDetailsViewConfig {
     let screenTitle: String
     let eventInfo: EventInfo?
+    let bookEventButton: String?
     
     struct EventInfo {
         let id: String

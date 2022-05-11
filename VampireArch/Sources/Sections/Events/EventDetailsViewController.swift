@@ -14,6 +14,7 @@ final class EventDetailsViewController: UIViewController {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var priceLabel: UILabel!
     @IBOutlet private var bookedLabel: UILabel!
+    @IBOutlet private var bookEventButton: UIButton!
     
     // MARK: Properties
     private let presenter: EventDetailsPresenterType
@@ -41,6 +42,10 @@ final class EventDetailsViewController: UIViewController {
     private func style() {
         // TODO: it's an example
     }
+    
+    @IBAction private func bookEventButtonTapped(_ sender: Any) {
+        presenter.bookEventTapped()
+    }
 }
 
 extension EventDetailsViewController: EventDetailsViewControllerType {
@@ -53,6 +58,13 @@ extension EventDetailsViewController: EventDetailsViewControllerType {
             nameLabel.text = eventInfo.name
             priceLabel.text = eventInfo.price
             bookedLabel.text = eventInfo.booked
+        }
+        
+        if let bookButton = config.bookEventButton {
+            bookEventButton.isHidden = false
+            bookEventButton.setTitle(bookButton, for: .normal)
+        } else {
+            bookEventButton.isHidden = true
         }
     }
     

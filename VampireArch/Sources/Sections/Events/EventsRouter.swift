@@ -10,6 +10,7 @@ import UIKit
 protocol EventRouterType: Router {
     func pushEventsList()
     func pushEventDetails(eventId: Int)
+    func pushBookEvent()
 }
 
 final class EventRouter: EventRouterType {
@@ -29,6 +30,11 @@ final class EventRouter: EventRouterType {
     func pushEventDetails(eventId: Int) {
         let vc = EventsDependencies.shared.eventDetailsViewController(eventId: eventId,
                                                                       router: self)
+        navController.pushViewController(vc, animated: true)
+    }
+    
+    func pushBookEvent() {
+        let vc = EventsDependencies.shared.bookEventViewController(router: self)
         navController.pushViewController(vc, animated: true)
     }
 }

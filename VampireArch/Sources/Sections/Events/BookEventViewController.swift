@@ -9,6 +9,8 @@ import UIKit
 
 final class BookEventViewController: UIViewController {
     // MARK: IBOutlets
+    @IBOutlet private var headerLabel: UILabel!
+    @IBOutlet private var bookEventButton: UIButton!
     
     // MARK: Properties
     private let presenter: BookEventPresenterType
@@ -34,11 +36,19 @@ final class BookEventViewController: UIViewController {
     }
     
     private func style() {
+        // Stubbed
     }
+    
+    @IBAction private func bookEventButtonTapped(_ sender: Any) {
+        // Stubbed
+    }
+    
 }
 
 extension BookEventViewController: BookEventViewControllerType {
     func config(with config: BookEventViewConfig) {
         title = config.screenTitle
+        headerLabel.text = config.header
+        bookEventButton.setTitle(config.bookEventButton, for: .normal)
     }
 }

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventDetailsViewController" customModule="VampireArch" customModuleProvider="target">
             <connections>
+                <outlet property="bookEventButton" destination="e9f-y2-Osd" id="EZl-r5-vnM"/>
                 <outlet property="bookedLabel" destination="Ww1-uc-O80" id="5cb-XU-SQA"/>
                 <outlet property="dateLabel" destination="CBa-Yc-k5e" id="cuA-oP-dGL"/>
                 <outlet property="idLabel" destination="Phm-tl-s3g" id="AW8-bh-Axn"/>
@@ -53,6 +54,19 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9f-y2-Osd">
+                    <rect key="frame" x="16" y="220" width="382" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="58L-kM-KVb"/>
+                    </constraints>
+                    <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Book Event"/>
+                    <connections>
+                        <action selector="bookEventButtonTapped:" destination="-1" eventType="touchUpInside" id="q0g-Za-24p"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,17 +74,20 @@
                 <constraint firstItem="XRp-5s-LLk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="3IG-qU-FW8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Phm-tl-s3g" secondAttribute="trailing" constant="16" id="5Eu-jc-gsM"/>
                 <constraint firstItem="Phm-tl-s3g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="6CU-JE-5DI"/>
+                <constraint firstItem="e9f-y2-Osd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="FUk-0P-IqW"/>
                 <constraint firstItem="XRp-5s-LLk" firstAttribute="top" secondItem="CBa-Yc-k5e" secondAttribute="bottom" constant="8" id="GaP-22-o5Z"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CBa-Yc-k5e" secondAttribute="trailing" constant="16" id="IeU-S9-K0e"/>
                 <constraint firstItem="gB7-gJ-ldf" firstAttribute="trailing" secondItem="XRp-5s-LLk" secondAttribute="trailing" id="K1d-CB-aCC"/>
                 <constraint firstItem="gB7-gJ-ldf" firstAttribute="leading" secondItem="XRp-5s-LLk" secondAttribute="leading" id="OHP-kE-nAu"/>
                 <constraint firstItem="CBa-Yc-k5e" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Pvu-cS-FTb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e9f-y2-Osd" secondAttribute="trailing" constant="16" id="Sv3-eD-erE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XRp-5s-LLk" secondAttribute="trailing" constant="16" id="Ubd-c3-pFt"/>
                 <constraint firstItem="Ww1-uc-O80" firstAttribute="top" secondItem="gB7-gJ-ldf" secondAttribute="bottom" constant="8" id="Wkq-ey-OOx"/>
                 <constraint firstItem="CBa-Yc-k5e" firstAttribute="top" secondItem="Phm-tl-s3g" secondAttribute="bottom" constant="8" id="Xa8-Oe-2Qk"/>
                 <constraint firstItem="Ww1-uc-O80" firstAttribute="trailing" secondItem="gB7-gJ-ldf" secondAttribute="trailing" id="fEf-lJ-tWl"/>
                 <constraint firstItem="gB7-gJ-ldf" firstAttribute="top" secondItem="XRp-5s-LLk" secondAttribute="bottom" constant="8" id="iPY-tl-ouT"/>
                 <constraint firstItem="Phm-tl-s3g" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="nJu-XO-kY3"/>
+                <constraint firstItem="e9f-y2-Osd" firstAttribute="top" secondItem="Ww1-uc-O80" secondAttribute="bottom" constant="24" id="rV2-Nj-vKH"/>
                 <constraint firstItem="Ww1-uc-O80" firstAttribute="leading" secondItem="gB7-gJ-ldf" secondAttribute="leading" id="sGV-oX-i9G"/>
             </constraints>
             <point key="canvasLocation" x="132" y="119"/>

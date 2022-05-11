@@ -20,7 +20,10 @@ final class BookEventPresenter: BookEventPresenterType {
     }
     
     func screenWillAppear() {
-        view?.config(with: BookEventViewConfig(screenTitle: "Book Event"))
+        let config = BookEventViewConfig(screenTitle: "Book Event",
+                                         header: "Here you can book the event",
+                                         bookEventButton: "Book Event")
+        view?.config(with: config)
     }
     
 }

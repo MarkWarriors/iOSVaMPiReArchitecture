@@ -45,6 +45,10 @@ final class EventDetailsPresenter: EventDetailsPresenterType {
         }
     }
     
+    func bookEventTapped() {
+        router?.pushBookEvent()
+    }
+    
     private func configureView(with event: Event? = nil) {
         var eventInfo: EventDetailsViewConfig.EventInfo?
         if let event = event {
@@ -58,7 +62,8 @@ final class EventDetailsPresenter: EventDetailsPresenterType {
         }
         
         let config = EventDetailsViewConfig(screenTitle: "Event Details",
-                                            eventInfo: eventInfo)
+                                            eventInfo: eventInfo,
+                                            bookEventButton: event?.booked == false ? "Book event" : nil)
         view?.config(with: config)
     }
     
