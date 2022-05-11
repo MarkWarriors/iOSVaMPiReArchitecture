@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventDetailsViewController" customModule="VampireArch" customModuleProvider="target">
+            <connections>
+                <outlet property="bookedLabel" destination="Ww1-uc-O80" id="5cb-XU-SQA"/>
+                <outlet property="dateLabel" destination="CBa-Yc-k5e" id="cuA-oP-dGL"/>
+                <outlet property="idLabel" destination="Phm-tl-s3g" id="AW8-bh-Axn"/>
+                <outlet property="nameLabel" destination="XRp-5s-LLk" id="DVO-44-80a"/>
+                <outlet property="priceLabel" destination="gB7-gJ-ldf" id="ipG-ol-V27"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ww1-uc-O80">
+                    <rect key="frame" x="16" y="175" width="382" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRp-5s-LLk">
+                    <rect key="frame" x="16" y="117" width="382" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gB7-gJ-ldf">
+                    <rect key="frame" x="16" y="146" width="382" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-tl-s3g">
+                    <rect key="frame" x="16" y="68" width="382" height="12"/>
+                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBa-Yc-k5e">
+                    <rect key="frame" x="16" y="88" width="382" height="21"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="XRp-5s-LLk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="3IG-qU-FW8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Phm-tl-s3g" secondAttribute="trailing" constant="16" id="5Eu-jc-gsM"/>
+                <constraint firstItem="Phm-tl-s3g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="6CU-JE-5DI"/>
+                <constraint firstItem="XRp-5s-LLk" firstAttribute="top" secondItem="CBa-Yc-k5e" secondAttribute="bottom" constant="8" id="GaP-22-o5Z"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CBa-Yc-k5e" secondAttribute="trailing" constant="16" id="IeU-S9-K0e"/>
+                <constraint firstItem="gB7-gJ-ldf" firstAttribute="trailing" secondItem="XRp-5s-LLk" secondAttribute="trailing" id="K1d-CB-aCC"/>
+                <constraint firstItem="gB7-gJ-ldf" firstAttribute="leading" secondItem="XRp-5s-LLk" secondAttribute="leading" id="OHP-kE-nAu"/>
+                <constraint firstItem="CBa-Yc-k5e" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Pvu-cS-FTb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XRp-5s-LLk" secondAttribute="trailing" constant="16" id="Ubd-c3-pFt"/>
+                <constraint firstItem="Ww1-uc-O80" firstAttribute="top" secondItem="gB7-gJ-ldf" secondAttribute="bottom" constant="8" id="Wkq-ey-OOx"/>
+                <constraint firstItem="CBa-Yc-k5e" firstAttribute="top" secondItem="Phm-tl-s3g" secondAttribute="bottom" constant="8" id="Xa8-Oe-2Qk"/>
+                <constraint firstItem="Ww1-uc-O80" firstAttribute="trailing" secondItem="gB7-gJ-ldf" secondAttribute="trailing" id="fEf-lJ-tWl"/>
+                <constraint firstItem="gB7-gJ-ldf" firstAttribute="top" secondItem="XRp-5s-LLk" secondAttribute="bottom" constant="8" id="iPY-tl-ouT"/>
+                <constraint firstItem="Phm-tl-s3g" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="nJu-XO-kY3"/>
+                <constraint firstItem="Ww1-uc-O80" firstAttribute="leading" secondItem="gB7-gJ-ldf" secondAttribute="leading" id="sGV-oX-i9G"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="119"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
