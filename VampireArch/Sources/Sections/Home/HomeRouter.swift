@@ -10,7 +10,7 @@ import UIKit
 protocol HomeRouterType: Router {
     func showHomeScreen()
     func pushEventsList()
-    func pushEventDetails(eventId: Int)
+    func presentEventDetails(eventId: Int)
 }
 
 final class HomeRouter: HomeRouterType {
@@ -33,9 +33,11 @@ final class HomeRouter: HomeRouterType {
         eventRouter.pushEventsList()
     }
     
-    func pushEventDetails(eventId: Int) {
-        let eventRouter = EventRouter(with: navController)
+    func presentEventDetails(eventId: Int) {
+        let newNavController = UINavigationController()
+        let eventRouter = EventRouter(with: newNavController)
         addChildRouter(router: eventRouter)
         eventRouter.pushEventDetails(eventId: eventId)
+        navController.present(newNavController, animated: true, completion: nil)
     }
 }

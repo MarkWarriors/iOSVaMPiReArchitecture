@@ -35,9 +35,8 @@ final class HomePresenter: HomePresenterType {
     
     func nextEventDetailsButtonTapped() {
         guard let nextEventId = nextEventId else { return }
-        router?.pushEventDetails(eventId: nextEventId)
+        router?.presentEventDetails(eventId: nextEventId)
     }
-    
     
     private func fetchNextEventDetails() {
         view?.showLoadingState()

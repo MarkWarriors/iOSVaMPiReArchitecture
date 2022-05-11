@@ -148,7 +148,7 @@
 			path = VampireArchTests;
 			sourceTree = "<group>";
 		};
-		9097C641282BBE7100C28E04 /* App */ = {
+		9097C641282BBE7100C28E04 /* AppCommons */ = {
 			isa = PBXGroup;
 			children = (
 				9097C67C282BDEFC00C28E04 /* Domain */,
@@ -157,7 +157,7 @@
 				9097C611282BBE5C00C28E04 /* AppDelegate.swift */,
 				9097C613282BBE5C00C28E04 /* SceneDelegate.swift */,
 			);
-			path = App;
+			path = AppCommons;
 			sourceTree = "<group>";
 		};
 		9097C642282BBE7800C28E04 /* Sections */ = {
@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				9097C68C282BE87400C28E04 /* Extensions */,
-				9097C641282BBE7100C28E04 /* App */,
+				9097C641282BBE7100C28E04 /* AppCommons */,
 				9097C642282BBE7800C28E04 /* Sections */,
 			);
 			path = Sources;
