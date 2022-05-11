@@ -13,10 +13,10 @@ protocol BookEventPresenterType {
 }
 
 protocol BookEventViewControllerType: AnyObject {
-    func config(with config: BookEventViewConfig)
+    func config(with viewModel: BookEventViewModel)
 }
 
-struct BookEventViewConfig {
+struct BookEventViewModel {
     let screenTitle: String
     let header: String
     let bookEventButton: String

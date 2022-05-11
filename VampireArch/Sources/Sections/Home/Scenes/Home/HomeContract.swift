@@ -15,12 +15,12 @@ protocol HomePresenterType {
 }
 
 protocol HomeViewControllerType: AnyObject {
-    func config(with config: HomeViewConfig)
+    func config(with viewModel: HomeViewModel)
     func showLoadingState()
     func dismissLoadingState()
 }
 
-struct HomeViewConfig {
+struct HomeViewModel {
     let screenTitle: String
     let header: String
     let eventListButtonTitle: String

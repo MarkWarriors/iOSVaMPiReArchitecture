@@ -57,7 +57,7 @@ final class EventsListViewController: UIViewController {
     }
     
     @objc private func pulledToRefresh() {
-      presenter.pullToRefreshTriggered()
+        presenter.pullToRefreshTriggered()
     }
 }
 
@@ -89,8 +89,8 @@ extension EventsListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension EventsListViewController: EventsListViewControllerType {
-    func config(with config: EventsListViewConfig) {
-        title = config.screenTitle
+    func config(with viewModel: EventsListViewModel) {
+        title = viewModel.screenTitle
     }
     
     func showEventsInList(events: [EventListTableViewCellConfig]) {

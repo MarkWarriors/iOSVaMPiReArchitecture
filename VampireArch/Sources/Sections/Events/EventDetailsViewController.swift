@@ -49,10 +49,10 @@ final class EventDetailsViewController: UIViewController {
 }
 
 extension EventDetailsViewController: EventDetailsViewControllerType {
-    func config(with config: EventDetailsViewConfig) {
-        title = config.screenTitle
+    func config(with viewModel: EventDetailsViewModel) {
+        title = viewModel.screenTitle
         
-        if let eventInfo = config.eventInfo {
+        if let eventInfo = viewModel.eventInfo {
             idLabel.text = eventInfo.id
             dateLabel.text = eventInfo.date
             nameLabel.text = eventInfo.name
@@ -60,7 +60,7 @@ extension EventDetailsViewController: EventDetailsViewControllerType {
             bookedLabel.text = eventInfo.booked
         }
         
-        if let bookButton = config.bookEventButton {
+        if let bookButton = viewModel.bookEventButton {
             bookEventButton.isHidden = false
             bookEventButton.setTitle(bookButton, for: .normal)
         } else {

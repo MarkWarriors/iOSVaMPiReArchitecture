@@ -15,13 +15,13 @@ protocol EventsListPresenterType {
 }
 
 protocol EventsListViewControllerType: AnyObject {
-    func config(with config: EventsListViewConfig)
+    func config(with viewModel: EventsListViewModel)
     func showEventsInList(events: [EventListTableViewCellConfig])
     func showLoadingState()
     func dismissLoadingState()
 }
 
-struct EventsListViewConfig {
+struct EventsListViewModel {
     let screenTitle: String
 }
 

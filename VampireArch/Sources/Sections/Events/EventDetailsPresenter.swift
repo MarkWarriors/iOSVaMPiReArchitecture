@@ -50,7 +50,7 @@ final class EventDetailsPresenter: EventDetailsPresenterType {
     }
     
     private func configureView(with event: Event? = nil) {
-        var eventInfo: EventDetailsViewConfig.EventInfo?
+        var eventInfo: EventDetailsViewModel.EventInfo?
         if let event = event {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd MMM yyyy"
@@ -61,10 +61,10 @@ final class EventDetailsPresenter: EventDetailsPresenterType {
                               booked: event.booked ? "Booked": "Available")
         }
         
-        let config = EventDetailsViewConfig(screenTitle: "Event Details",
-                                            eventInfo: eventInfo,
-                                            bookEventButton: event?.booked == false ? "Book event" : nil)
-        view?.config(with: config)
+        let viewModel = EventDetailsViewModel(screenTitle: "Event Details",
+                                              eventInfo: eventInfo,
+                                              bookEventButton: event?.booked == false ? "Book event" : nil)
+        view?.config(with: viewModel)
     }
     
     private func handleFetchEventDetailSuccess(event: Event) {

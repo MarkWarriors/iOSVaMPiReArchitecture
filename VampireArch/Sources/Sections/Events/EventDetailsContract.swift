@@ -14,12 +14,12 @@ protocol EventDetailsPresenterType {
 }
 
 protocol EventDetailsViewControllerType: AnyObject {
-    func config(with config: EventDetailsViewConfig)
+    func config(with viewModel: EventDetailsViewModel)
     func showLoadingState()
     func dismissLoadingState()
 }
 
-struct EventDetailsViewConfig {
+struct EventDetailsViewModel {
     let screenTitle: String
     let eventInfo: EventInfo?
     let bookEventButton: String?

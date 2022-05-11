@@ -57,13 +57,13 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewControllerType {
-    func config(with config: HomeViewConfig) {
-        title = config.screenTitle
-        headerLabel.text = config.header
-        eventListButton.setTitle(config.eventListButtonTitle,
+    func config(with viewModel: HomeViewModel) {
+        title = viewModel.screenTitle
+        headerLabel.text = viewModel.header
+        eventListButton.setTitle(viewModel.eventListButtonTitle,
                                  for: .normal)
         
-        if let nextEvent = config.nextEvent {
+        if let nextEvent = viewModel.nextEvent {
             nextEventView.isHidden = false
             nextEventHeaderLabel.text = nextEvent.header
             nextEventDateLabel.text = nextEvent.date

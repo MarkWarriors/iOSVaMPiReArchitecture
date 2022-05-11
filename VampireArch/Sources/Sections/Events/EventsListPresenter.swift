@@ -24,8 +24,8 @@ final class EventsListPresenter: EventsListPresenterType {
     }
     
     func screenWillAppear() {
-        let config = EventsListViewConfig(screenTitle: "Events List")
-        view?.config(with: config)
+        let viewModel = EventsListViewModel(screenTitle: "Events List")
+        view?.config(with: viewModel)
         fetchEventsToShow()
     }
     
@@ -52,11 +52,11 @@ final class EventsListPresenter: EventsListPresenterType {
     }
     
     private func handleSuccessFetchEventsToShow(with events: [Event]) {
-        let configArray = events.map { EventListTableViewCellConfig(id: $0.id,
-                                                                    name: $0.name,
-                                                                    price: String(format: "$%.2f", $0.cost),
-                                                                    booked: $0.booked ? "Booked" : "Available") }
-        view?.showEventsInList(events: configArray)
+        let eventsToShow = events.map { EventListTableViewCellConfig(id: $0.id,
+                                                                     name: $0.name,
+                                                                     price: String(format: "$%.2f", $0.cost),
+                                                                     booked: $0.booked ? "Booked" : "Available") }
+        view?.showEventsInList(events: eventsToShow)
     }
     
     private func handleFailureFetchEventsToShow(with error: Error) {

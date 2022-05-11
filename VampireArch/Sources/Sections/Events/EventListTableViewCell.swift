@@ -29,10 +29,10 @@ final class EventListTableViewCell: UITableViewCell {
         bookedLabel.text = nil
     }
     
-    func configure(with config: EventListTableViewCellConfig) {
-        nameLabel.text = config.name
-        priceLabel.text = config.price
-        bookedLabel.text = config.booked
+    func configure(with viewModel: EventListTableViewCellConfig) {
+        nameLabel.text = viewModel.name
+        priceLabel.text = viewModel.price
+        bookedLabel.text = viewModel.booked
     }
     
 }

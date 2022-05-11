@@ -46,9 +46,9 @@ final class BookEventViewController: UIViewController {
 }
 
 extension BookEventViewController: BookEventViewControllerType {
-    func config(with config: BookEventViewConfig) {
-        title = config.screenTitle
-        headerLabel.text = config.header
-        bookEventButton.setTitle(config.bookEventButton, for: .normal)
+    func config(with viewModel: BookEventViewModel) {
+        title = viewModel.screenTitle
+        headerLabel.text = viewModel.header
+        bookEventButton.setTitle(viewModel.bookEventButton, for: .normal)
     }
 }

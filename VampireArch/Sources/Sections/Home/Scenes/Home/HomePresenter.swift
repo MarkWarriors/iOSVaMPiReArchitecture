@@ -53,7 +53,7 @@ final class HomePresenter: HomePresenterType {
     }
     
     private func configureView(with event: Event? = nil) {
-        var nextEvent: HomeViewConfig.NextEvent?
+        var nextEvent: HomeViewModel.NextEvent?
         if let event = event {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd MMM yyyy"
@@ -64,11 +64,11 @@ final class HomePresenter: HomePresenterType {
                               showEventButtonTitle: "Show Details")
         }
         
-        let config = HomeViewConfig(screenTitle: "Home",
-                                    header: "Welcome to VaMPiRe Events",
-                                    eventListButtonTitle: "Go To Events List",
-                                    nextEvent: nextEvent)
-        view?.config(with: config)
+        let viewModel = HomeViewModel(screenTitle: "Home",
+                                      header: "Welcome to VaMPiRe Events",
+                                      eventListButtonTitle: "Go To Events List",
+                                      nextEvent: nextEvent)
+        view?.config(with: viewModel)
     }
     
     private func handleFetchNextEventDetailSuccess(event: Event) {
