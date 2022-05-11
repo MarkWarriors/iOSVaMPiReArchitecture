@@ -11,6 +11,7 @@ protocol HomeRouterType: Router {
     func showHomeScreen()
     func pushEventsList()
     func presentEventDetails(eventId: Int)
+    func presentSettings()
 }
 
 final class HomeRouter: HomeRouterType {
@@ -38,6 +39,14 @@ final class HomeRouter: HomeRouterType {
         let eventRouter = EventRouter(with: newNavController)
         addChildRouter(router: eventRouter)
         eventRouter.pushEventDetails(eventId: eventId)
+        navController.present(newNavController, animated: true, completion: nil)
+    }
+    
+    func presentSettings() {
+        let newNavController = UINavigationController()
+        let settingsRouter = SettingsRouter(with: newNavController)
+        addChildRouter(router: settingsRouter)
+        settingsRouter.pushSettings()
         navController.present(newNavController, animated: true, completion: nil)
     }
 }

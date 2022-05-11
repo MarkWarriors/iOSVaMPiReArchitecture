@@ -73,6 +73,15 @@ extension HomeViewController: HomeViewControllerType {
         } else {
             nextEventView.isHidden = true
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: viewModel.rightBarButton,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(rightBarButtonTapped))
+    }
+    
+    @objc private func rightBarButtonTapped() {
+        presenter.rightBarButtonTapped()
     }
     
     func showLoadingState() {

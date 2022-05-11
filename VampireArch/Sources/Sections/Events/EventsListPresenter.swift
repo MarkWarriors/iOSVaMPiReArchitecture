@@ -24,7 +24,8 @@ final class EventsListPresenter: EventsListPresenterType {
     }
     
     func screenWillAppear() {
-        let viewModel = EventsListViewModel(screenTitle: "Events List")
+        let viewModel = EventsListViewModel(screenTitle: "Events List",
+                                            rightBarButton: "Settings")
         view?.config(with: viewModel)
         fetchEventsToShow()
     }
@@ -35,6 +36,10 @@ final class EventsListPresenter: EventsListPresenterType {
     
     func eventSelected(eventId: Int) {
         router?.pushEventDetails(eventId: eventId)
+    }
+    
+    func rightBarButtonTapped() {
+        router?.presentSettings()
     }
     
     private func fetchEventsToShow() {

@@ -12,6 +12,7 @@ protocol HomePresenterType {
     func screenWillAppear()
     func eventListButtonTapped()
     func nextEventDetailsButtonTapped()
+    func rightBarButtonTapped()
 }
 
 protocol HomeViewControllerType: AnyObject {
@@ -25,6 +26,7 @@ struct HomeViewModel {
     let header: String
     let eventListButtonTitle: String
     let nextEvent: NextEvent?
+    let rightBarButton: String
     
     struct NextEvent {
         let header: String

@@ -12,6 +12,7 @@ protocol EventsListPresenterType {
     func screenWillAppear()
     func pullToRefreshTriggered()
     func eventSelected(eventId: Int)
+    func rightBarButtonTapped()
 }
 
 protocol EventsListViewControllerType: AnyObject {
@@ -23,6 +24,7 @@ protocol EventsListViewControllerType: AnyObject {
 
 struct EventsListViewModel {
     let screenTitle: String
+    let rightBarButton: String
 }
 
 struct EventListTableViewCellConfig {

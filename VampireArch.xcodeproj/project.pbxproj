@@ -11,7 +11,6 @@
 		9097C614282BBE5C00C28E04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C613282BBE5C00C28E04 /* SceneDelegate.swift */; };
 		9097C61B282BBE5D00C28E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9097C61A282BBE5D00C28E04 /* Assets.xcassets */; };
 		9097C61E282BBE5D00C28E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9097C61C282BBE5D00C28E04 /* LaunchScreen.storyboard */; };
-		9097C629282BBE5D00C28E04 /* VampireArchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C628282BBE5D00C28E04 /* VampireArchTests.swift */; };
 		9097C64D282BBEE600C28E04 /* EventsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C64C282BBEE600C28E04 /* EventsRouter.swift */; };
 		9097C64F282BBEED00C28E04 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C64E282BBEED00C28E04 /* HomeRouter.swift */; };
 		9097C651282BBEF600C28E04 /* EventsDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C650282BBEF600C28E04 /* EventsDependencies.swift */; };
@@ -41,6 +40,14 @@
 		9097C68E282BE87C00C28E04 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C68D282BE87C00C28E04 /* String+Extensions.swift */; };
 		9097C692282BF2B700C28E04 /* EventListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C690282BF2B700C28E04 /* EventListTableViewCell.swift */; };
 		9097C693282BF2B700C28E04 /* EventListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9097C691282BF2B700C28E04 /* EventListTableViewCell.xib */; };
+		9097C697282C37F400C28E04 /* SettingsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C696282C37F400C28E04 /* SettingsContract.swift */; };
+		9097C699282C37FD00C28E04 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C698282C37FD00C28E04 /* SettingsPresenter.swift */; };
+		9097C69C282C380800C28E04 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C69A282C380800C28E04 /* SettingsViewController.swift */; };
+		9097C69D282C380800C28E04 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9097C69B282C380800C28E04 /* SettingsViewController.xib */; };
+		9097C69F282C381300C28E04 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C69E282C381300C28E04 /* SettingsRouter.swift */; };
+		9097C6A1282C381B00C28E04 /* SettingsDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C6A0282C381B00C28E04 /* SettingsDependencies.swift */; };
+		9097C6A9282C39C100C28E04 /* MockEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C6A8282C39C100C28E04 /* MockEvent.swift */; };
+		9097C6AC282C3A2D00C28E04 /* DateGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C6AB282C3A2D00C28E04 /* DateGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +68,6 @@
 		9097C61D282BBE5D00C28E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9097C61F282BBE5D00C28E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9097C624282BBE5D00C28E04 /* VampireArchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VampireArchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9097C628282BBE5D00C28E04 /* VampireArchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VampireArchTests.swift; sourceTree = "<group>"; };
 		9097C64C282BBEE600C28E04 /* EventsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsRouter.swift; sourceTree = "<group>"; };
 		9097C64E282BBEED00C28E04 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		9097C650282BBEF600C28E04 /* EventsDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDependencies.swift; sourceTree = "<group>"; };
@@ -91,6 +97,14 @@
 		9097C68D282BE87C00C28E04 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		9097C690282BF2B700C28E04 /* EventListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableViewCell.swift; sourceTree = "<group>"; };
 		9097C691282BF2B700C28E04 /* EventListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListTableViewCell.xib; sourceTree = "<group>"; };
+		9097C696282C37F400C28E04 /* SettingsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContract.swift; sourceTree = "<group>"; };
+		9097C698282C37FD00C28E04 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		9097C69A282C380800C28E04 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9097C69B282C380800C28E04 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		9097C69E282C381300C28E04 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		9097C6A0282C381B00C28E04 /* SettingsDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDependencies.swift; sourceTree = "<group>"; };
+		9097C6A8282C39C100C28E04 /* MockEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEvent.swift; sourceTree = "<group>"; };
+		9097C6AB282C3A2D00C28E04 /* DateGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +157,10 @@
 		9097C627282BBE5D00C28E04 /* VampireArchTests */ = {
 			isa = PBXGroup;
 			children = (
-				9097C628282BBE5D00C28E04 /* VampireArchTests.swift */,
+				9097C6AA282C3A2400C28E04 /* Helpers */,
+				9097C6A7282C39B700C28E04 /* Mocks */,
+				9097C6A6282C39AE00C28E04 /* AppCommons */,
+				9097C6A2282C398800C28E04 /* Sections */,
 			);
 			path = VampireArchTests;
 			sourceTree = "<group>";
@@ -163,8 +180,9 @@
 		9097C642282BBE7800C28E04 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				9097C645282BBE9400C28E04 /* Events */,
 				9097C644282BBE8D00C28E04 /* Home */,
+				9097C645282BBE9400C28E04 /* Events */,
+				9097C694282C37D600C28E04 /* Settings */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -330,6 +348,81 @@
 			name = TableViewCell;
 			sourceTree = "<group>";
 		};
+		9097C694282C37D600C28E04 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9097C695282C37E300C28E04 /* Scenes */,
+				9097C69E282C381300C28E04 /* SettingsRouter.swift */,
+				9097C6A0282C381B00C28E04 /* SettingsDependencies.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9097C695282C37E300C28E04 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9097C696282C37F400C28E04 /* SettingsContract.swift */,
+				9097C698282C37FD00C28E04 /* SettingsPresenter.swift */,
+				9097C69A282C380800C28E04 /* SettingsViewController.swift */,
+				9097C69B282C380800C28E04 /* SettingsViewController.xib */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9097C6A2282C398800C28E04 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				9097C6A3282C399100C28E04 /* Home */,
+				9097C6A4282C399700C28E04 /* Events */,
+				9097C6A5282C399C00C28E04 /* Settings */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		9097C6A3282C399100C28E04 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9097C6A4282C399700C28E04 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		9097C6A5282C399C00C28E04 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9097C6A6282C39AE00C28E04 /* AppCommons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppCommons;
+			sourceTree = "<group>";
+		};
+		9097C6A7282C39B700C28E04 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9097C6A8282C39C100C28E04 /* MockEvent.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		9097C6AA282C3A2400C28E04 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9097C6AB282C3A2D00C28E04 /* DateGenerator.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -383,6 +476,7 @@
 					};
 					9097C623282BBE5D00C28E04 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 						TestTargetID = 9097C60D282BBE5C00C28E04;
 					};
 				};
@@ -414,6 +508,7 @@
 				9097C65B282BBF1C00C28E04 /* BookEventViewController.xib in Resources */,
 				9097C693282BF2B700C28E04 /* EventListTableViewCell.xib in Resources */,
 				9097C66B282BBF6800C28E04 /* EventsListViewController.xib in Resources */,
+				9097C69D282C380800C28E04 /* SettingsViewController.xib in Resources */,
 				9097C61E282BBE5D00C28E04 /* LaunchScreen.storyboard in Resources */,
 				9097C61B282BBE5D00C28E04 /* Assets.xcassets in Resources */,
 				9097C663282BBF4600C28E04 /* EventDetailsViewController.xib in Resources */,
@@ -440,16 +535,19 @@
 				9097C65D282BBF3400C28E04 /* EventDetailsContract.swift in Sources */,
 				9097C679282BC06400C28E04 /* AppRouter.swift in Sources */,
 				9097C662282BBF4600C28E04 /* EventDetailsViewController.swift in Sources */,
+				9097C6A1282C381B00C28E04 /* SettingsDependencies.swift in Sources */,
 				9097C68B282BE75F00C28E04 /* EventDetailsUseCase.swift in Sources */,
 				9097C68E282BE87C00C28E04 /* String+Extensions.swift in Sources */,
 				9097C65F282BBF3A00C28E04 /* EventDetailsPresenter.swift in Sources */,
 				9097C671282BBFBD00C28E04 /* HomeContract.swift in Sources */,
+				9097C69F282C381300C28E04 /* SettingsRouter.swift in Sources */,
 				9097C676282BBFC800C28E04 /* HomeViewController.swift in Sources */,
 				9097C612282BBE5C00C28E04 /* AppDelegate.swift in Sources */,
 				9097C67B282BC07600C28E04 /* AppDependencies.swift in Sources */,
 				9097C614282BBE5C00C28E04 /* SceneDelegate.swift in Sources */,
 				9097C64D282BBEE600C28E04 /* EventsRouter.swift in Sources */,
 				9097C653282BBEFC00C28E04 /* HomeDependencies.swift in Sources */,
+				9097C697282C37F400C28E04 /* SettingsContract.swift in Sources */,
 				9097C66A282BBF6800C28E04 /* EventsListViewController.swift in Sources */,
 				9097C657282BBF0F00C28E04 /* BookEventPresenter.swift in Sources */,
 				9097C688282BDF5000C28E04 /* Event.swift in Sources */,
@@ -457,10 +555,12 @@
 				9097C655282BBF0A00C28E04 /* BookEventContract.swift in Sources */,
 				9097C692282BF2B700C28E04 /* EventListTableViewCell.swift in Sources */,
 				9097C667282BBF6000C28E04 /* EventsListPresenter.swift in Sources */,
+				9097C69C282C380800C28E04 /* SettingsViewController.swift in Sources */,
 				9097C684282BDF3600C28E04 /* Errors.swift in Sources */,
 				9097C64F282BBEED00C28E04 /* HomeRouter.swift in Sources */,
 				9097C65A282BBF1C00C28E04 /* BookEventViewController.swift in Sources */,
 				9097C651282BBEF600C28E04 /* EventsDependencies.swift in Sources */,
+				9097C699282C37FD00C28E04 /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +568,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9097C629282BBE5D00C28E04 /* VampireArchTests.swift in Sources */,
+				9097C6A9282C39C100C28E04 /* MockEvent.swift in Sources */,
+				9097C6AC282C3A2D00C28E04 /* DateGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,15 +772,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7877B8CVB7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcoguerrieri.VampireArchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VampireArch.app/VampireArch";
@@ -691,11 +799,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7877B8CVB7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcoguerrieri.VampireArchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -11,6 +11,7 @@ protocol EventRouterType: Router {
     func pushEventsList()
     func pushEventDetails(eventId: Int)
     func pushBookEvent()
+    func presentSettings()
 }
 
 final class EventRouter: EventRouterType {
@@ -36,5 +37,14 @@ final class EventRouter: EventRouterType {
     func pushBookEvent() {
         let vc = EventsDependencies.shared.bookEventViewController(router: self)
         navController.pushViewController(vc, animated: true)
+    }
+    
+    
+    func presentSettings() {
+        let newNavController = UINavigationController()
+        let settingsRouter = SettingsRouter(with: newNavController)
+        addChildRouter(router: settingsRouter)
+        settingsRouter.pushSettings()
+        navController.present(newNavController, animated: true, completion: nil)
     }
 }

@@ -91,6 +91,10 @@ extension EventsListViewController: UITableViewDelegate, UITableViewDataSource {
 extension EventsListViewController: EventsListViewControllerType {
     func config(with viewModel: EventsListViewModel) {
         title = viewModel.screenTitle
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: viewModel.rightBarButton,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(rightBarButtonTapped))
     }
     
     func showEventsInList(events: [EventListTableViewCellConfig]) {
@@ -105,4 +109,9 @@ extension EventsListViewController: EventsListViewControllerType {
     func dismissLoadingState() {
         loadingActivityIndicator.isHidden = true
     }
+    
+    @objc private func rightBarButtonTapped() {
+        presenter.rightBarButtonTapped()
+    }
+    
 }

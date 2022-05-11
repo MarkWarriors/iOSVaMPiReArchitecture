@@ -38,6 +38,10 @@ final class HomePresenter: HomePresenterType {
         router?.presentEventDetails(eventId: nextEventId)
     }
     
+    func rightBarButtonTapped() {
+        router?.presentSettings()
+    }
+    
     private func fetchNextEventDetails() {
         view?.showLoadingState()
         eventDetailsUseCase.fetch(eventId: nil) { [weak self] result in
@@ -67,7 +71,8 @@ final class HomePresenter: HomePresenterType {
         let viewModel = HomeViewModel(screenTitle: "Home",
                                       header: "Welcome to VaMPiRe Events",
                                       eventListButtonTitle: "Go To Events List",
-                                      nextEvent: nextEvent)
+                                      nextEvent: nextEvent,
+                                      rightBarButton: "Settings")
         view?.config(with: viewModel)
     }
     
