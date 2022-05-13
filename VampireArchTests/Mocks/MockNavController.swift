@@ -34,13 +34,13 @@ final class MockNavController: NavControllerType {
     }
     
     func setViewControllers(_ vc: [UIViewController], animated: Bool) {
-        setViewControllersCalled = true
         viewControllerArrayPassed = vc
+        setViewControllersCalled = true
     }
     
     func present(_ vc: UIViewController, animated: Bool, completion: (() -> Void)?) {
-        presentCalled = true
         viewControllerPassed = vc
+        presentCalled = true
         completion?()
     }
     
