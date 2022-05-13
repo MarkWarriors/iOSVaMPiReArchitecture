@@ -12,11 +12,11 @@ protocol SettingsRouterType: Router {
 }
 
 final class SettingsRouter: SettingsRouterType {
-    let navController: UINavigationController
+    let navController: NavControllerType
     var childRouter: Router?
     weak var parentRouter: Router?
     
-    init(with navController: UINavigationController) {
+    init(with navController: NavControllerType) {
         self.navController = navController
     }
     

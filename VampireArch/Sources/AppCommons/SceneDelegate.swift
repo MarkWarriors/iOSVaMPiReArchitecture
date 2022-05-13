@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         rootNavigationController = rootNavController
         
-        appRouter = AppRotuer(with: rootNavController)
+        appRouter = AppRouter(with: rootNavController)
         appRouter?.showFirstScreen()
         
         window = UIWindow(windowScene: windowScene)

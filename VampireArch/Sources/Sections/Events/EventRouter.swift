@@ -1,5 +1,5 @@
 //
-//  EventsRouter.swift
+//  EventRouter.swift
 //  VampireArch
 //
 //  Created by Marco Guerrieri on 11/05/2022.
@@ -15,11 +15,11 @@ protocol EventRouterType: Router {
 }
 
 final class EventRouter: EventRouterType {
-    let navController: UINavigationController
+    let navController: NavControllerType
     var childRouter: Router?
     weak var parentRouter: Router?
     
-    init(with navController: UINavigationController) {
+    init(with navController: NavControllerType) {
         self.navController = navController
     }
     

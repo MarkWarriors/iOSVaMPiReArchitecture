@@ -7,8 +7,8 @@
 
 import UIKit
 
-public protocol Router: AnyObject {
-    var navController: UINavigationController { get }
+protocol Router: AnyObject {
+    var navController: NavControllerType { get }
     var childRouter: Router? { get set }
     var parentRouter: Router? { get set }
     func addChildRouter(router: Router)
@@ -18,7 +18,18 @@ public protocol Router: AnyObject {
     func popToRoot(animated: Bool)
 }
 
-public extension Router {
+protocol NavControllerType {
+    func dismiss(animated: Bool, completion: (() -> Void)?)
+    func popViewController(animated: Bool) -> UIViewController?
+    func popToRootViewController(animated: Bool) -> [UIViewController]?
+    func setViewControllers(_: [UIViewController], animated: Bool)
+    func present(_: UIViewController, animated: Bool, completion: (() -> Void)?)
+    func pushViewController(_: UIViewController, animated: Bool)
+}
+
+extension UINavigationController: NavControllerType {}
+
+extension Router {
     func childDidDismiss() {
         childRouter = nil
     }
@@ -29,16 +40,16 @@ public extension Router {
     }
     
     func dismiss(animated: Bool) {
-        navController.dismiss(animated: animated)
+        navController.dismiss(animated: animated, completion: nil)
         parentRouter?.childDidDismiss()
     }
     
     func back(animated: Bool) {
-        navController.popViewController(animated: animated)
+        _ = navController.popViewController(animated: animated)
     }
     
     func popToRoot(animated: Bool) {
-        navController.popToRootViewController(animated: animated)
+        _ = navController.popToRootViewController(animated: animated)
     }
 }
 
@@ -46,12 +57,12 @@ protocol AppRouterType: Router {
     func showFirstScreen()
 }
 
-final class AppRotuer: AppRouterType {
-    let navController: UINavigationController
+final class AppRouter: AppRouterType {
+    let navController: NavControllerType
     var childRouter: Router?
     weak var parentRouter: Router?
     
-    init(with navController: UINavigationController) {
+    init(with navController: NavControllerType) {
         self.navController = navController
     }
     
