@@ -13,21 +13,26 @@ final class BookEventPresenterTests: XCTestCase {
     private var mockView: MockBookEventViewController!
     private var subject: BookEventPresenter!
     private var mockEventRouter: MockEventRouter!
+    private var mockAnalyticsManager: MockAnalyticsManager!
     
     override func setUp() {
         mockView = MockBookEventViewController()
         mockEventRouter = MockEventRouter()
-        subject = BookEventPresenter(router: mockEventRouter)
+        mockAnalyticsManager = MockAnalyticsManager()
+        subject = BookEventPresenter(analyticsManager: mockAnalyticsManager,
+                                     router: mockEventRouter)
     }
     
-    func test_when_setupIsCalled() {
+    func test_configCorrect_and_noAnalyticsSent_when_setupIsCalled() {
         when_setupIsCalled()
+        then_viewConfigIsCorrect()
+        then_analyticsAreNotSent()
     }
     
-    func test_when_screenWillAppearCalled() {
+    func test_analyticsAreSent_when_screenWillAppearCalled() {
         given_setupIsCalled()
         when_screenWillAppearCalled()
-        then_viewConfigIsCorrect()
+        then_analyticsAreSentCorrectlyForScreenWillAppear()
     }
     
     // MARK: Given
@@ -50,6 +55,14 @@ final class BookEventPresenterTests: XCTestCase {
     
     private func then_viewConfigIsCorrect() {
         XCTAssertEqual(mockView.configCalledViewModel?.screenTitle, "Book Event")
+    }
+    
+    private func then_analyticsAreSentCorrectlyForScreenWillAppear() {
+        XCTAssertEqual(mockAnalyticsManager.sentScreenAppearName, "Book Event")
+    }
+    
+    private func then_analyticsAreNotSent() {
+        XCTAssertNil(mockAnalyticsManager.sentScreenAppearName)
     }
 }
 

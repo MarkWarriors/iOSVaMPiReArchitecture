@@ -12,20 +12,24 @@ final class HomePresenter: HomePresenterType {
     private weak var view: HomeViewControllerType?
     
     private let eventDetailsUseCase: EventDetailsUseCaseType
+    private let analyticsManager: AnalyticsManagerType
     private var nextEventId: Int?
     
     init(eventDetailsUseCase: EventDetailsUseCaseType,
+         analyticsManager: AnalyticsManagerType,
          router: HomeRouterType) {
         self.eventDetailsUseCase = eventDetailsUseCase
+        self.analyticsManager = analyticsManager
         self.router = router
     }
     
     func setup(with view: HomeViewControllerType) {
         self.view = view
+        configureView(with: nil)
     }
     
     func screenWillAppear() {
-        configureView(with: nil)
+        analyticsManager.sendScreenAppear(named: "Home")
         fetchNextEventDetails()
     }
     

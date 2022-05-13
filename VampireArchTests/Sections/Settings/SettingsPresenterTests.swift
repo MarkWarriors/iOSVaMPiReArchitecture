@@ -12,22 +12,27 @@ import XCTest
 final class SettingsPresenterTests: XCTestCase {
     private var mockView: MockSettingsViewController!
     private var subject: SettingsPresenter!
+    private var mockAnalyticsManager: MockAnalyticsManager!
     private var mockSettingsRouter: MockSettingsRouter!
     
     override func setUp() {
         mockView = MockSettingsViewController()
         mockSettingsRouter = MockSettingsRouter()
-        subject = SettingsPresenter(router: mockSettingsRouter)
+        mockAnalyticsManager = MockAnalyticsManager()
+        subject = SettingsPresenter(analyticsManager: mockAnalyticsManager,
+                                    router: mockSettingsRouter)
     }
     
-    func test_when_setupIsCalled() {
+    func test_configCorrect_and_noAnalyticsSent_when_setupIsCalled() {
         when_setupIsCalled()
+        then_viewConfigIsCorrect()
+        then_analyticsAreNotSent()
     }
     
-    func test_when_screenWillAppearCalled() {
+    func test_analyticsAreSent_when_screenWillAppearCalled() {
         given_setupIsCalled()
         when_screenWillAppearCalled()
-        then_viewConfigIsCorrect()
+        then_analyticsAreSentCorrectlyForScreenWillAppear()
     }
     
     // MARK: Given
@@ -50,6 +55,14 @@ final class SettingsPresenterTests: XCTestCase {
     
     private func then_viewConfigIsCorrect() {
         XCTAssertEqual(mockView.configCalledViewModel?.screenTitle, "Settings")
+    }
+    
+    private func then_analyticsAreSentCorrectlyForScreenWillAppear() {
+        XCTAssertEqual(mockAnalyticsManager.sentScreenAppearName, "Settings")
+    }
+    
+    private func then_analyticsAreNotSent() {
+        XCTAssertNil(mockAnalyticsManager.sentScreenAppearName)
     }
 }
 

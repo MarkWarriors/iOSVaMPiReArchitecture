@@ -18,7 +18,11 @@ final class SettingsDependencies {
 
     
     private func settingsPresenter(router: SettingsRouterType) -> SettingsPresenterType {
-        return SettingsPresenter(router: router)
+        return SettingsPresenter(analyticsManager: analyticsManager(), router: router)
+    }
+    
+    private func analyticsManager() -> AnalyticsManagerType {
+        return AppDependencies.shared.analyticsManager()
     }
     
 }

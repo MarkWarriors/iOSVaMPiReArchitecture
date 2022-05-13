@@ -26,17 +26,20 @@ final class EventsDependencies {
     
     private func eventsListPresenter(router: EventRouterType) -> EventsListPresenterType {
         return EventsListPresenter(eventsListUseCase: eventsListUseCase(),
+                                   analyticsManager: analyticsManager(),
                                    router: router)
     }
     
     private func eventDetailsPresenter(eventId: Int, router: EventRouterType) -> EventDetailsPresenterType {
         return EventDetailsPresenter(eventId: eventId,
                                      eventDetailsUseCase: eventDetailsUseCase(),
+                                     analyticsManager: analyticsManager(),
                                      router: router)
     }
     
     private func bookEventPresenter(router: EventRouterType) -> BookEventPresenterType {
-        return BookEventPresenter(router: router)
+        return BookEventPresenter(analyticsManager: analyticsManager(),
+                                  router: router)
     }
     
     private func eventsListUseCase() -> EventsListUseCaseType {
@@ -46,4 +49,9 @@ final class EventsDependencies {
     private func eventDetailsUseCase() -> EventDetailsUseCaseType {
         return AppDependencies.shared.eventDetailsUseCase()
     }
+    
+    private func analyticsManager() -> AnalyticsManagerType {
+        return AppDependencies.shared.analyticsManager()
+    }
+    
 }

@@ -19,7 +19,33 @@ final class AppRouterTests: XCTestCase {
         subject = AppRouter(with: mockNavController)
     }
     
-    func test() {
-        
+    func test_noChildrenRouters_when_subjectStart() {
+        then_noChildRouter_and_noScreenShown()
+    }
+    
+    func test_homeRouterIsAddedAsChild_and_homeScreenShown_when_ShowFirstScreenCalled() {
+        when_showFirstScreen()
+        then_homeRouterIsAddedAsChild_and_homeScreenShown()
+    }
+    
+    // MARK: Given
+    
+    // MARK: When
+    
+    private func when_showFirstScreen() {
+        subject.showFirstScreen()
+    }
+    
+    // MARK: Then
+    
+    private func then_noChildRouter_and_noScreenShown() {
+        XCTAssertNil(subject.childRouter)
+        XCTAssertFalse(mockNavController.setViewControllersCalled)
+    }
+    
+    private func then_homeRouterIsAddedAsChild_and_homeScreenShown() {
+        XCTAssertNotNil(subject.childRouter as? HomeRouterType)
+        XCTAssertTrue(mockNavController.setViewControllersCalled)
+        XCTAssertNotNil(mockNavController.viewControllerArrayPassed?[0] as? HomeViewController)
     }
 }

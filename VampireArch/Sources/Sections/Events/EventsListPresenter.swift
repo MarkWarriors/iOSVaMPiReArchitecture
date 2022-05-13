@@ -12,21 +12,25 @@ final class EventsListPresenter: EventsListPresenterType {
     private weak var view: EventsListViewControllerType?
     
     private let eventsListUseCase: EventsListUseCaseType
+    private let analyticsManager: AnalyticsManagerType
     
     init(eventsListUseCase: EventsListUseCaseType,
+         analyticsManager: AnalyticsManagerType,
          router: EventRouterType) {
         self.eventsListUseCase = eventsListUseCase
+        self.analyticsManager = analyticsManager
         self.router = router
     }
     
     func setup(with view: EventsListViewControllerType) {
         self.view = view
+        let viewModel = EventsListViewModel(screenTitle: "Events List",
+                                            rightBarButton: "Settings")
+        view.config(with: viewModel)
     }
     
     func screenWillAppear() {
-        let viewModel = EventsListViewModel(screenTitle: "Events List",
-                                            rightBarButton: "Settings")
-        view?.config(with: viewModel)
+        analyticsManager.sendScreenAppear(named: "Events List")
         fetchEventsToShow()
     }
     

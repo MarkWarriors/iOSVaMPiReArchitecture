@@ -19,4 +19,8 @@ final class AppDependencies {
     func eventDetailsUseCase() -> EventDetailsUseCaseType {
         return EventDetailsUseCase()
     }
+    
+    func analyticsManager() -> AnalyticsManagerType {
+        return AnalyticsManager()
+    }
 }

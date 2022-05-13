@@ -13,24 +13,29 @@ final class EventsListPresenterTests: XCTestCase {
     private var mockView: MockEventsListViewController!
     private var subject: EventsListPresenter!
     private var mockEventsListUseCase: MockEventsListUseCase!
+    private var mockAnalyticsManager: MockAnalyticsManager!
     private var mockEventRouter: MockEventRouter!
     
     override func setUp() {
         mockView = MockEventsListViewController()
         mockEventsListUseCase = MockEventsListUseCase()
         mockEventRouter = MockEventRouter()
+        mockAnalyticsManager = MockAnalyticsManager()
         subject = EventsListPresenter(eventsListUseCase: mockEventsListUseCase,
+                                      analyticsManager: mockAnalyticsManager,
                                       router: mockEventRouter)
     }
     
-    func test_when_setupIsCalled() {
+    func test_configCorrect_and_noAnalyticsSent_when_setupIsCalled() {
         when_setupIsCalled()
+        then_viewConfigIsCorrect()
+        then_analyticsAreNotSent()
     }
     
-    func test_when_screenWillAppearCalled() {
+    func test_analyticsAreSent_when_screenWillAppearCalled() {
         given_setupIsCalled()
         when_screenWillAppearCalled()
-        then_viewConfigIsCorrect()
+        then_analyticsAreSentCorrectlyForScreenWillAppear()
     }
     
     func test_when_eventIsSelected() {
@@ -69,6 +74,14 @@ final class EventsListPresenterTests: XCTestCase {
     
     private func then_viewConfigIsCorrect() {
         XCTAssertEqual(mockView.configCalledViewModel?.screenTitle, "Events List")
+    }
+    
+    private func then_analyticsAreSentCorrectlyForScreenWillAppear() {
+        XCTAssertEqual(mockAnalyticsManager.sentScreenAppearName, "Events List")
+    }
+    
+    private func then_analyticsAreNotSent() {
+        XCTAssertNil(mockAnalyticsManager.sentScreenAppearName)
     }
 }
 

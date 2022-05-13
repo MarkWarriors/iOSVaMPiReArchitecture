@@ -13,29 +13,36 @@ final class EventDetailsPresenterTests: XCTestCase {
     private var mockView: MockEventDetailsViewController!
     private var subject: EventDetailsPresenter!
     private var mockEventDetailsUseCase: MockEventDetailsUseCase!
+    private var mockAnalyticsManager: MockAnalyticsManager!
     private var mockEventRouter: MockEventRouter!
     
     override func setUp() {
         mockView = MockEventDetailsViewController()
         mockEventDetailsUseCase = MockEventDetailsUseCase()
         mockEventRouter = MockEventRouter()
+        mockAnalyticsManager = MockAnalyticsManager()
         subject = EventDetailsPresenter(eventId: 123,
                                         eventDetailsUseCase: mockEventDetailsUseCase,
+                                        analyticsManager: mockAnalyticsManager,
                                         router: mockEventRouter)
     }
     
-    func test_when_setupIsCalled() {
+    func test_configCorrect_and_noAnalyticsSent_when_setupIsCalled() {
         when_setupIsCalled()
+        then_viewConfigIsCorrect()
+        then_analyticsAreNotSent()
     }
     
-    func test_when_screenWillAppearCalled() {
+    func test_analyticsAreSent_when_screenWillAppearCalled() {
         given_setupIsCalled()
         when_screenWillAppearCalled()
-        then_viewConfigIsCorrect()
+        then_analyticsAreSentCorrectlyForScreenWillAppear()
     }
     
     func test_when_bookEventTappedCalled() {
+        given_setupIsCalled()
         when_bookEventTappedCalled()
+        then_routerPushBookEvent()
     }
     
     // MARK: Given
@@ -62,6 +69,18 @@ final class EventDetailsPresenterTests: XCTestCase {
     
     private func then_viewConfigIsCorrect() {
         XCTAssertEqual(mockView.configCalledViewModel?.screenTitle, "Event Details")
+    }
+    
+    private func then_analyticsAreSentCorrectlyForScreenWillAppear() {
+        XCTAssertEqual(mockAnalyticsManager.sentScreenAppearName, "Event Details")
+    }
+    
+    private func then_analyticsAreNotSent() {
+        XCTAssertNil(mockAnalyticsManager.sentScreenAppearName)
+    }
+    
+    private func then_routerPushBookEvent() {
+        XCTAssertTrue(mockEventRouter.pushBookEventCalled)
     }
 }
 

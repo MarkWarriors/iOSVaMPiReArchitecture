@@ -13,21 +13,25 @@ final class EventDetailsPresenter: EventDetailsPresenterType {
     
     private let eventId: Int
     private let eventDetailsUseCase: EventDetailsUseCaseType
+    private let analyticsManager: AnalyticsManagerType
     
     init(eventId: Int,
          eventDetailsUseCase: EventDetailsUseCaseType,
+         analyticsManager: AnalyticsManagerType,
          router: EventRouterType) {
         self.eventId = eventId
         self.eventDetailsUseCase = eventDetailsUseCase
+        self.analyticsManager = analyticsManager
         self.router = router
     }
     
     func setup(with view: EventDetailsViewControllerType) {
         self.view = view
+        configureView()
     }
     
     func screenWillAppear() {
-        configureView()
+        analyticsManager.sendScreenAppear(named: "Event Details")
         fetchEventDetail()
     }
     

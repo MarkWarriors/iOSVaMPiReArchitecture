@@ -18,10 +18,15 @@ final class HomeDependencies {
     
     private func homePresenter(router: HomeRouterType) -> HomePresenterType {
         return HomePresenter(eventDetailsUseCase: eventDetailsUseCase(),
+                             analyticsManager: analyticsManager(),
                              router: router)
     }
     
     private func eventDetailsUseCase() -> EventDetailsUseCaseType {
         return AppDependencies.shared.eventDetailsUseCase()
+    }
+    
+    private func analyticsManager() -> AnalyticsManagerType {
+        return AppDependencies.shared.analyticsManager()
     }
 }

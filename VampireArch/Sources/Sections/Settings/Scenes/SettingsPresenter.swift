@@ -10,18 +10,23 @@ import Foundation
 final class SettingsPresenter: SettingsPresenterType {
     private weak var router: SettingsRouterType?
     private weak var view: SettingsViewControllerType?
-        
-    init(router: SettingsRouterType) {
+    
+    private let analyticsManager: AnalyticsManagerType
+    
+    init(analyticsManager: AnalyticsManagerType,
+         router: SettingsRouterType) {
+        self.analyticsManager = analyticsManager
         self.router = router
     }
     
     func setup(with view: SettingsViewControllerType) {
         self.view = view
+        let viewModel = SettingsViewModel(screenTitle: "Settings",
+                                          header: "Nothing really to see here :)")
+        view.config(with: viewModel)
     }
     
     func screenWillAppear() {
-        let viewModel = SettingsViewModel(screenTitle: "Settings",
-                                          header: "Nothing really to see here :)")
-        view?.config(with: viewModel)
+        analyticsManager.sendScreenAppear(named: "Settings")
     }
 }

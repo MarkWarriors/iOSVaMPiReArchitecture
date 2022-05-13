@@ -16,6 +16,8 @@ final class MockNavController: NavControllerType {
     var setViewControllersCalled = false
     var presentCalled = false
     var pushViewControllerCalled = false
+    var viewControllerPassed: UIViewController?
+    var viewControllerArrayPassed: [UIViewController]?
     
     func dismiss(animated: Bool, completion: (() -> Void)?) {
         dismissCalled = true
@@ -31,16 +33,19 @@ final class MockNavController: NavControllerType {
         return []
     }
     
-    func setViewControllers(_: [UIViewController], animated: Bool) {
+    func setViewControllers(_ vc: [UIViewController], animated: Bool) {
         setViewControllersCalled = true
+        viewControllerArrayPassed = vc
     }
     
-    func present(_: UIViewController, animated: Bool, completion: (() -> Void)?) {
+    func present(_ vc: UIViewController, animated: Bool, completion: (() -> Void)?) {
         presentCalled = true
+        viewControllerPassed = vc
         completion?()
     }
     
-    func pushViewController(_: UIViewController, animated: Bool) {
+    func pushViewController(_ vc: UIViewController, animated: Bool) {
+        viewControllerPassed = vc
         pushViewControllerCalled = true
     }
     
