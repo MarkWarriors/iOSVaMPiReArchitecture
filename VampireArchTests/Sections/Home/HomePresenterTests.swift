@@ -22,6 +22,63 @@ final class HomePresenterTests: XCTestCase {
         subject = HomePresenter(eventDetailsUseCase: mockEventDetailsUseCase,
                                 router: mockHomeRouter)
     }
+    
+    func test_when_setupIsCalled() {
+        when_setupIsCalled()
+    }
+    
+    func test_when_screenWillAppearCalled() {
+        given_setupIsCalled()
+        when_screenWillAppearCalled()
+        then_viewConfigIsCorrect()
+    }
+    
+    func test_when_eventListButtonTappedCalled() {
+        when_eventListButtonTappedCalled()
+    }
+    
+    func test_when_nextEventDetailsButtonTappedCalled() {
+        when_nextEventDetailsButtonTappedCalled()
+    }
+    
+    func test_when_rightBarButtonTappedCalled() {
+        when_rightBarButtonTappedCalled()
+    }
+    
+    // MARK: Given
+    
+    private func given_setupIsCalled() {
+        subject.setup(with: mockView)
+    }
+    
+    // MARK: When
+    
+    private func when_setupIsCalled() {
+        subject.setup(with: mockView)
+    }
+    
+    private func when_screenWillAppearCalled() {
+        subject.screenWillAppear()
+    }
+    
+    private func when_eventListButtonTappedCalled() {
+        subject.eventListButtonTapped()
+    }
+    
+    private func when_nextEventDetailsButtonTappedCalled() {
+        subject.nextEventDetailsButtonTapped()
+    }
+    
+    private func when_rightBarButtonTappedCalled() {
+        subject.rightBarButtonTapped()
+    }
+    
+    // MARK: Then
+    
+    private func then_viewConfigIsCorrect() {
+        XCTAssertEqual(mockView.configCalledViewModel?.screenTitle, "Home")
+    }
+    
 }
 
 private class MockHomeViewController: HomeViewControllerType {

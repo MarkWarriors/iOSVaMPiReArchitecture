@@ -1,5 +1,5 @@
 //
-//  DateGenerator.swift
+//  MockDateGenerator.swift
 //  VampireArchTests
 //
 //  Created by Marco Guerrieri on 11/05/2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class DateGenerator {
+final class MockDateGenerator {
     static func fixedDate() -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm"

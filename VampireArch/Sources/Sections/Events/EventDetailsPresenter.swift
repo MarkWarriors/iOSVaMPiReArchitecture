@@ -31,7 +31,11 @@ final class EventDetailsPresenter: EventDetailsPresenterType {
         fetchEventDetail()
     }
     
-    func fetchEventDetail() {
+    func bookEventTapped() {
+        router?.pushBookEvent()
+    }
+    
+    private func fetchEventDetail() {
         view?.showLoadingState()
         eventDetailsUseCase.fetch(eventId: eventId) { [weak self] result in
             guard let self = self else { return }
@@ -43,10 +47,6 @@ final class EventDetailsPresenter: EventDetailsPresenterType {
             }
             self.view?.dismissLoadingState()
         }
-    }
-    
-    func bookEventTapped() {
-        router?.pushBookEvent()
     }
     
     private func configureView(with event: Event? = nil) {

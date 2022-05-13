@@ -11,7 +11,7 @@ import Foundation
 final class MockEvent {
     static func mock(id: Int = 1,
                      name: String = "EventName",
-                     date: Date = DateGenerator.fixedDate(),
+                     date: Date = MockDateGenerator.fixedDate(),
                      cost: Double = 15.5,
                      booked: Bool = true) -> Event {
         return Event(id: id,

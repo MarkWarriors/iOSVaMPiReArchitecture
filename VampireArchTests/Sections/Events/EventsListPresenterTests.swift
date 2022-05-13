@@ -22,6 +22,54 @@ final class EventsListPresenterTests: XCTestCase {
         subject = EventsListPresenter(eventsListUseCase: mockEventsListUseCase,
                                       router: mockEventRouter)
     }
+    
+    func test_when_setupIsCalled() {
+        when_setupIsCalled()
+    }
+    
+    func test_when_screenWillAppearCalled() {
+        given_setupIsCalled()
+        when_screenWillAppearCalled()
+        then_viewConfigIsCorrect()
+    }
+    
+    func test_when_eventIsSelected() {
+        when_eventIsSelected(with: 222)
+    }
+    
+    func test_when_rightBarButtonTappedCalled() {
+        when_rightBarButtonTappedCalled()
+    }
+    
+    // MARK: Given
+    
+    private func given_setupIsCalled() {
+        subject.setup(with: mockView)
+    }
+    
+    // MARK: When
+    
+    private func when_setupIsCalled() {
+        subject.setup(with: mockView)
+    }
+    
+    private func when_screenWillAppearCalled() {
+        subject.screenWillAppear()
+    }
+    
+    private func when_eventIsSelected(with eventId: Int) {
+        subject.eventSelected(eventId: eventId)
+    }
+    
+    private func when_rightBarButtonTappedCalled() {
+        subject.rightBarButtonTapped()
+    }
+    
+    // MARK: Then
+    
+    private func then_viewConfigIsCorrect() {
+        XCTAssertEqual(mockView.configCalledViewModel?.screenTitle, "Events List")
+    }
 }
 
 private class MockEventsListViewController: EventsListViewControllerType {
