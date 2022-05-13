@@ -65,6 +65,8 @@
 		9097C6CA282E80D000C28E04 /* HomeRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C6C9282E80D000C28E04 /* HomeRouterTests.swift */; };
 		9097C6CC282E845D00C28E04 /* EventRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C6CB282E845D00C28E04 /* EventRouterTests.swift */; };
 		9097C6CE282E85D300C28E04 /* SettingsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C6CD282E85D300C28E04 /* SettingsRouterTests.swift */; };
+		9097C6D0282E8E4200C28E04 /* EventsListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C6CF282E8E4200C28E04 /* EventsListUseCaseTests.swift */; };
+		9097C6D2282E909A00C28E04 /* EventDetailsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097C6D1282E909A00C28E04 /* EventDetailsUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,8 @@
 		9097C6C9282E80D000C28E04 /* HomeRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouterTests.swift; sourceTree = "<group>"; };
 		9097C6CB282E845D00C28E04 /* EventRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRouterTests.swift; sourceTree = "<group>"; };
 		9097C6CD282E85D300C28E04 /* SettingsRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouterTests.swift; sourceTree = "<group>"; };
+		9097C6CF282E8E4200C28E04 /* EventsListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListUseCaseTests.swift; sourceTree = "<group>"; };
+		9097C6D1282E909A00C28E04 /* EventDetailsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +434,7 @@
 				9097C6B1282C3DC200C28E04 /* EventDetailsPresenterTests.swift */,
 				9097C6B3282C3DC900C28E04 /* BookEventPresenterTests.swift */,
 				9097C6CB282E845D00C28E04 /* EventRouterTests.swift */,
+				9097C6CF282E8E4200C28E04 /* EventsListUseCaseTests.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				9097C6C1282D7F8800C28E04 /* AppRouterTests.swift */,
+				9097C6D1282E909A00C28E04 /* EventDetailsUseCaseTests.swift */,
 			);
 			path = AppCommons;
 			sourceTree = "<group>";
@@ -621,6 +627,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9097C6B4282C3DC900C28E04 /* BookEventPresenterTests.swift in Sources */,
+				9097C6D2282E909A00C28E04 /* EventDetailsUseCaseTests.swift in Sources */,
 				9097C6B2282C3DC200C28E04 /* EventDetailsPresenterTests.swift in Sources */,
 				9097C6BC282D7BFA00C28E04 /* MockEventsListUseCase.swift in Sources */,
 				9097C6CE282E85D300C28E04 /* SettingsRouterTests.swift in Sources */,
@@ -631,6 +638,7 @@
 				9097C6B0282C3DB900C28E04 /* EventsListPresenterTests.swift in Sources */,
 				9097C6A9282C39C100C28E04 /* MockEvent.swift in Sources */,
 				9097C6BA282D7B0C00C28E04 /* MockHomeRouter.swift in Sources */,
+				9097C6D0282E8E4200C28E04 /* EventsListUseCaseTests.swift in Sources */,
 				9097C6AC282C3A2D00C28E04 /* MockDateGenerator.swift in Sources */,
 				9097C6C0282D7CCD00C28E04 /* MockSettingsRouter.swift in Sources */,
 				9097C6C2282D7F8800C28E04 /* AppRouterTests.swift in Sources */,

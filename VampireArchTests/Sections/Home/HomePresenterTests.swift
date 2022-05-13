@@ -43,6 +43,8 @@ final class HomePresenterTests: XCTestCase {
         given_setupIsCalled()
         given_fetchEventDetailsSuccessfull()
         when_screenWillAppearCalled()
+        then_loadingStateShown()
+        then_loadingStateDismissed()
         then_fetchEventDetailsCalled()
         then_nextEventViewIsShown()
     }
@@ -51,6 +53,8 @@ final class HomePresenterTests: XCTestCase {
         given_setupIsCalled()
         given_fetchEventDetailsFailure()
         when_screenWillAppearCalled()
+        then_loadingStateShown()
+        then_loadingStateDismissed()
         then_fetchEventDetailsCalled()
         then_nextEventViewIsNotShown()
     }
@@ -175,6 +179,13 @@ final class HomePresenterTests: XCTestCase {
         XCTAssertTrue(mockHomeRouter.presentSettingsCalled)
     }
     
+    private func then_loadingStateShown() {
+        XCTAssertTrue(mockView.showLoadingStateCalled)
+    }
+    
+    private func then_loadingStateDismissed() {
+        XCTAssertTrue(mockView.dismissLoadingStateCalled)
+    }
 }
 
 private class MockHomeViewController: HomeViewControllerType {

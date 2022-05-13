@@ -29,7 +29,7 @@ final class EventDetailsPresenterTests: XCTestCase {
     
     func test_configCorrect_and_noAnalyticsSent_when_setupIsCalled() {
         when_setupIsCalled()
-        then_viewConfigIsCorrect()
+        then_viewConfigIsCorrect(eventInfoPresent: false, eventBooked: false)
         then_analyticsAreNotSent()
     }
     
@@ -43,6 +43,36 @@ final class EventDetailsPresenterTests: XCTestCase {
         given_setupIsCalled()
         when_bookEventTappedCalled()
         then_routerPushBookEvent()
+    }
+    
+    func test_fetchEventDetailsCalled_and_nextEventViewIsShown_when_screenWillAppearCalled_andEventDetailsUseCaseSuccessful_eventBooked() {
+        given_setupIsCalled()
+        given_fetchEventDetailsSuccessfull(eventBooked: true)
+        when_screenWillAppearCalled()
+        then_loadingStateShown()
+        then_loadingStateDismissed()
+        then_fetchEventDetailsCalled()
+        then_viewConfigIsCorrect(eventInfoPresent: true, eventBooked: true)
+    }
+    
+    func test_fetchEventDetailsCalled_and_nextEventViewIsShown_when_screenWillAppearCalled_andEventDetailsUseCaseSuccessful_eventNotBooked() {
+        given_setupIsCalled()
+        given_fetchEventDetailsSuccessfull(eventBooked: false)
+        when_screenWillAppearCalled()
+        then_loadingStateShown()
+        then_loadingStateDismissed()
+        then_fetchEventDetailsCalled()
+        then_viewConfigIsCorrect(eventInfoPresent: true, eventBooked: false)
+    }
+    
+    func test_fetchEventDetailsCalled_and_nextEventViewIsNotShown_when_screenWillAppearCalled_andEventDetailsUseCaseFailure() {
+        given_setupIsCalled()
+        given_fetchEventDetailsFailure()
+        when_screenWillAppearCalled()
+        then_loadingStateShown()
+        then_loadingStateDismissed()
+        then_fetchEventDetailsCalled()
+        then_viewConfigIsCorrect(eventInfoPresent: false, eventBooked: false)
     }
     
     // MARK: Given
@@ -65,10 +95,30 @@ final class EventDetailsPresenterTests: XCTestCase {
         subject.bookEventTapped()
     }
     
+    private func given_fetchEventDetailsSuccessfull(eventBooked: Bool) {
+        mockEventDetailsUseCase.resultToReturn = .success(MockEvent.mock(booked: eventBooked))
+    }
+    
+    private func given_fetchEventDetailsFailure() {
+        mockEventDetailsUseCase.resultToReturn = .failure(NetworkError.unexpected)
+    }
+    
     // MARK: Then
     
-    private func then_viewConfigIsCorrect() {
+    private func then_viewConfigIsCorrect(eventInfoPresent: Bool, eventBooked: Bool) {
         XCTAssertEqual(mockView.configCalledViewModel?.screenTitle, "Event Details")
+        if eventInfoPresent {
+            XCTAssertEqual(mockView.configCalledViewModel?.bookEventButton, eventBooked ? nil : "Book event")
+            let eventInfo = mockView.configCalledViewModel?.eventInfo
+            XCTAssertEqual(eventInfo?.booked, eventBooked ? "Booked" : "Available")
+            XCTAssertEqual(eventInfo?.price, "$15.50")
+            XCTAssertEqual(eventInfo?.name, "EventName")
+            XCTAssertEqual(eventInfo?.date, "12 Jun 2022")
+            XCTAssertEqual(eventInfo?.id, "Event ID: 1")
+        } else {
+            XCTAssertNil(mockView.configCalledViewModel?.bookEventButton)
+            XCTAssertNil(mockView.configCalledViewModel?.eventInfo)
+        }
     }
     
     private func then_analyticsAreSentCorrectlyForScreenWillAppear() {
@@ -79,8 +129,20 @@ final class EventDetailsPresenterTests: XCTestCase {
         XCTAssertNil(mockAnalyticsManager.sentScreenAppearName)
     }
     
+    private func then_fetchEventDetailsCalled() {
+        XCTAssertTrue(mockEventDetailsUseCase.fetchCalled)
+    }
+    
     private func then_routerPushBookEvent() {
         XCTAssertTrue(mockEventRouter.pushBookEventCalled)
+    }
+    
+    private func then_loadingStateShown() {
+        XCTAssertTrue(mockView.showLoadingStateCalled)
+    }
+    
+    private func then_loadingStateDismissed() {
+        XCTAssertTrue(mockView.dismissLoadingStateCalled)
     }
 }
 
