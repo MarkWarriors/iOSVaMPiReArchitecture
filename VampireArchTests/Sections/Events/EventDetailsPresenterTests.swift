@@ -39,7 +39,7 @@ final class EventDetailsPresenterTests: XCTestCase {
         then_analyticsAreSentCorrectlyForScreenWillAppear()
     }
     
-    func test_when_bookEventTappedCalled() {
+    func test_routerPushBookEvent_when_bookEventTappedCalled() {
         given_setupIsCalled()
         when_bookEventTappedCalled()
         then_routerPushBookEvent()

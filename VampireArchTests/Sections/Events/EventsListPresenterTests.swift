@@ -38,12 +38,16 @@ final class EventsListPresenterTests: XCTestCase {
         then_analyticsAreSentCorrectlyForScreenWillAppear()
     }
     
-    func test_when_eventIsSelected() {
+    func test_routerPresentEventDetails_when_eventIsSelected() {
+        given_setupIsCalled()
         when_eventIsSelected(with: 222)
+        then_routerPresentEventDetails()
     }
     
-    func test_when_rightBarButtonTappedCalled() {
+    func test_routerPresentSettings_when_rightBarButtonTappedCalled() {
+        given_setupIsCalled()
         when_rightBarButtonTappedCalled()
+        then_routerPresentSettings()
     }
     
     // MARK: Given
@@ -82,6 +86,14 @@ final class EventsListPresenterTests: XCTestCase {
     
     private func then_analyticsAreNotSent() {
         XCTAssertNil(mockAnalyticsManager.sentScreenAppearName)
+    }
+    
+    private func then_routerPresentEventDetails() {
+        XCTAssertEqual(mockEventRouter.pushEventDetailsCalledId, 222)
+    }
+    
+    private func then_routerPresentSettings() {
+        XCTAssertTrue(mockEventRouter.presentSettingsCalled)
     }
 }
 
