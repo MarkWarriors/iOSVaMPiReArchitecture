@@ -163,6 +163,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		903BA76A283512D500213629 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9097C6C5282E6EB400C28E04 /* AnalyticsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		9097C605282BBE5C00C28E04 = {
 			isa = PBXGroup;
 			children = (
@@ -206,12 +214,12 @@
 		9097C641282BBE7100C28E04 /* AppCommons */ = {
 			isa = PBXGroup;
 			children = (
+				903BA76A283512D500213629 /* Managers */,
 				9097C67C282BDEFC00C28E04 /* Domain */,
 				9097C678282BC06400C28E04 /* AppRouter.swift */,
 				9097C67A282BC07600C28E04 /* AppDependencies.swift */,
 				9097C611282BBE5C00C28E04 /* AppDelegate.swift */,
 				9097C613282BBE5C00C28E04 /* SceneDelegate.swift */,
-				9097C6C5282E6EB400C28E04 /* AnalyticsManager.swift */,
 			);
 			path = AppCommons;
 			sourceTree = "<group>";
