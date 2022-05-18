@@ -7,17 +7,6 @@
 
 import UIKit
 
-protocol Router: AnyObject {
-    var navController: NavControllerType { get }
-    var childRouter: Router? { get set }
-    var parentRouter: Router? { get set }
-    func addChildRouter(router: Router)
-    func childDidDismiss()
-    func dismiss(animated: Bool)
-    func back(animated: Bool)
-    func popToRoot(animated: Bool)
-}
-
 protocol NavControllerType {
     func dismiss(animated: Bool, completion: (() -> Void)?)
     func popViewController(animated: Bool) -> UIViewController?
@@ -28,6 +17,17 @@ protocol NavControllerType {
 }
 
 extension UINavigationController: NavControllerType {}
+
+protocol Router: AnyObject {
+    var navController: NavControllerType { get }
+    var childRouter: Router? { get set }
+    var parentRouter: Router? { get set }
+    func addChildRouter(router: Router)
+    func childDidDismiss()
+    func dismiss(animated: Bool)
+    func back(animated: Bool)
+    func popToRoot(animated: Bool)
+}
 
 extension Router {
     func childDidDismiss() {
