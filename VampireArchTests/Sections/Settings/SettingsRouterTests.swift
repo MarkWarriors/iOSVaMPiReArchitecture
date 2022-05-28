@@ -27,8 +27,6 @@ final class SettingsRouterTests: XCTestCase {
         then_settingsPushed()
     }
     
-    // MARK: Given
-    
     // MARK: When
     
     private func when_pushSettingsCalled() {
